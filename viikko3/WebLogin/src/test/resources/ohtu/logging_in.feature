@@ -14,4 +14,3 @@ Feature: As a registered user can log in with valid username/password-combinatio
         Given login is selected
         When incorrect username "mörri" and incorrect password "möykky" are given
         Then user is not logged in and error message is given
-
