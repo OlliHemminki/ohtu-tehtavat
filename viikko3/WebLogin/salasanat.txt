@@ -9,3 +9,5 @@ polle19012;koninkaulus2
 polle57380;koninkaulus2
 hepsan;keikka12345
 abc;qwertyuiop123
+pelto;pyy12345678
+mikko;mallikas123
