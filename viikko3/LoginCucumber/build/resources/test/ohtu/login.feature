@@ -12,5 +12,5 @@ Feature: User can log in with valid username/password-combination
 
 		Scenario: nonexistent user can not login to 
     		Given command login is selected
-    		When  username "monni" and password "innom" are entered
+    		When  username "monni" and password "innom321654" are entered
     		Then  system will respond with "wrong username or password"
