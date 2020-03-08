@@ -11,12 +11,17 @@ public class Main {
 
         Statistics stats = new Statistics(new PlayerReaderImpl(url));
           
-        Matcher m = new And( new HasAtLeast(5, "goals"),
+        Matcher m = new And( new HasFewerThan(5, "goals"),
                              new HasAtLeast(5, "assists"),
                              new PlaysIn("PHI")
         );
         
-        for (Player player : stats.matches(m)) {
+        Matcher m2 = new And( 
+        	    new HasFewerThan(1, "goals"), 
+        	    new PlaysIn("NYR")
+        );
+        
+        for (Player player : stats.matches(m2)) {
             System.out.println(player);
         }
     }
