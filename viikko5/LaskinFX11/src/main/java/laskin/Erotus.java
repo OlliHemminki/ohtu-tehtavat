@@ -5,8 +5,8 @@ import javafx.scene.control.TextField;
 
 public class Erotus extends Komento {
 
-	public Erotus(TextField tuloskentta, TextField syotekentta, Button nollaa, Button undo, Sovelluslogiikka sovellus) {
-		super(tuloskentta, syotekentta, nollaa, undo, sovellus);
+	public Erotus(TextField tuloskentta, TextField syotekentta, Button nollaa, Button undo) {
+		super(tuloskentta, syotekentta, nollaa, undo);
     }
 
 	@Override
@@ -14,5 +14,6 @@ public class Erotus extends Komento {
 		super.edellinenArvo = Integer.parseInt(super.tuloskentta.getText());
 		super.tuloskentta.setText("" + (Integer.parseInt(super.tuloskentta.getText()) - Integer.parseInt(super.syotekentta.getText())));
 		super.nollaa.disableProperty().set(false);
+		super.undo.disableProperty().set(false);
     }	
 }

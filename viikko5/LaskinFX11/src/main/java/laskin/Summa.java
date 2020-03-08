@@ -5,8 +5,8 @@ import javafx.scene.control.TextField;
 
 public class Summa extends Komento {
 
-	public Summa(TextField tuloskentta, TextField syotekentta, Button nollaa, Button undo, Sovelluslogiikka sovellus) {
-		super(tuloskentta, syotekentta, nollaa, undo, sovellus);
+	public Summa(TextField tuloskentta, TextField syotekentta, Button nollaa, Button undo) {
+		super(tuloskentta, syotekentta, nollaa, undo);
     }
 
 	@Override
@@ -14,6 +14,8 @@ public class Summa extends Komento {
 		super.edellinenArvo = Integer.parseInt(super.tuloskentta.getText());
 		super.tuloskentta.setText("" + (Integer.parseInt(super.tuloskentta.getText()) + Integer.parseInt(super.syotekentta.getText())));
 		super.nollaa.disableProperty().set(false);
+		super.undo.disableProperty().set(false);
+
     }
 	
 }
