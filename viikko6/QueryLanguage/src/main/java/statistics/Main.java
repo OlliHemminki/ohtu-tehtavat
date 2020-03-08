@@ -16,10 +16,14 @@ public class Main {
                              new PlaysIn("PHI")
         );
         
-        Matcher m2 = new And( 
-        	    new HasFewerThan(1, "goals"), 
-        	    new PlaysIn("NYR")
-        );
+        Matcher m2 = new And(
+        	    new HasAtLeast(20, "points"),
+        	    new Or( 
+        	        new PlaysIn("NYR"),
+        	        new PlaysIn("NYI"),
+        	        new PlaysIn("NJD")
+        	    )
+        	); 
         
         for (Player player : stats.matches(m2)) {
             System.out.println(player);
