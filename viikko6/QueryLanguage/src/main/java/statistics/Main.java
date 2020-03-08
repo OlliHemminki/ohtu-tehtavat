@@ -10,28 +10,22 @@ public class Main {
         // "https://nhlstatisticsforohtu.herokuapp.com/players.txt"
 
         Statistics stats = new Statistics(new PlayerReaderImpl(url));
-          
-        Matcher m = new And( new HasFewerThan(5, "goals"),
-                             new HasAtLeast(5, "assists"),
-                             new PlaysIn("PHI")
-        );
         
-        Matcher m2 = new And(
-        	    new HasAtLeast(20, "points"),
-        	    new Or( 
-        	        new PlaysIn("NYR"),
-        	        new PlaysIn("NYI"),
-        	        new PlaysIn("NJD")
-        	    )
-        	);
+        QueryBuilder query = new QueryBuilder();  
         
-        QueryBuilder query = new QueryBuilder();
-        Matcher m3 = query.playsIn("NYR")
-                .hasAtLeast(5, "goals")
-                .hasFewerThan(10, "goals").build();
         
-        for (Player player : stats.matches(m3)) {
+        Matcher m1 = query.playsIn("PHI")
+                .hasAtLeast(10, "assists")
+                .hasFewerThan(8, "goals").build();
+
+        Matcher m2 = query.playsIn("EDM")
+                .hasAtLeast(20, "points").build();
+
+        Matcher m = query.oneOf(m1, m2).build();
+        
+        for (Player player : stats.matches(m)) {
             System.out.println(player);
         }
+        
     }
 }
